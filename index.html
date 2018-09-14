@@ -200,8 +200,40 @@
           <div class="i-title">
             <h2>Có thể bạn chưa biết</h2>
           </div>
+                <h3 class="name">Những mẫu áo thun năng động và cách mix match cùng Juky</h3>
+                <p class="info">Áo thun là item cực kì cơ bản & phổ biến trong tủ đồ của mọi chàng trai vì tính ứng dụng cao, phù hợp với mọi hoàn cảnh, mọi độ tuổi....</p>
+              </div>
+              <a class="prev" onclick="current(-1)">&#10094;</a>
+              <a class="next" onclick="current(1)">&#10095;</a>
+              </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
+      <section id="partner">
+        <div class="container-flud">
+          <div class="row">
+            <div class="col-xs-4 call">
+              <h3 class="text-zoom">Giao hàng toàn quốc</h3>
+              <p>Free Ship cho đơn hàng từ 5 sản phẩm</p>
+            </div>
+            <div class="col-xs-4 call">
+              <h3 class="text-zoom">Liên hệ đặt hàng</h3>
+              <p>
+                <i class="fa fa-phone fa-fw"></i>
+                <strong>123-456-789</strong>
+              </p>
+            </div>
+            <div class="col-xs-4 call">
+              <h3 class="text-zoom">Bảo hành 365 ngày</h3>
+              <p>Các sản phẩm lỗi sẽ được đổi trả miễn phí</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="newpage">
         <div class="container">
           <div class="row">
@@ -209,11 +241,11 @@
               <h3>ĐĂNG KÝ NHẬP TIN KHUYẾN MÃI</h3>
               <p>NHẬP EMAIL CỦA BẠN ĐỂ NHẬN THÔNG TIN KHUYẾN MÃI TẠI SHOP JUKY.VN</p>
               <form>
-                <div class="form-group mrb20">
+                <div class="form-group">
                   <input type="text" name="email" placeholder="Nhập Email..."> <br>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn">Xác nhận</button>
+                  <button type="submit" class="btn success">Xác nhận</button>
                 </div>
               </form>
             </div>
@@ -279,11 +311,8 @@
         <img src="images/back-to-top.png">
       </a>
 </div>
-<div class="loginModal">
-  
-</div>
 
-      <script>
+<script>
   //khai báo biến slideIndex đại diện cho slide hiện tại
   var slideIndex;
   // KHai bào hàm hiển thị slide
@@ -292,30 +321,58 @@
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
     for (i = 0; i < slides.length; i++) {
-     slides[i].style.display = "none";  
-   }
-   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-
-  slides[slideIndex].style.display = "block";  
-  dots[slideIndex].className += " active";
-      //chuyển đến slide tiếp theo
-      slideIndex++;
-      //nếu đang ở slide cuối cùng thì chuyển về slide đầu
-      if (slideIndex > slides.length - 1) {
-        slideIndex = 0
-      }    
-      //tự động chuyển đổi slide sau 5s
-      setTimeout(showSlides, 5000);
+      slides[i].style.display = "none";  
     }
-  //mặc định hiển thị slide đầu tiên 
-  showSlides(slideIndex = 0);
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    if (slideIndex > slides.length - 1) {
+     slideIndex = 0
+    }
+    if(slideIndex < 0)
+    {
+     slideIndex = slides.length-1;
+    }
+    slides[slideIndex].style.display = "block";  
+    dots[slideIndex].className += " active";
+      
+
+      //tự động chuyển đổi slide sau 5s
+      //setTimeout(showSlides, 5000);
+    }
+    //mặc định hiển thị slide đầu tiên 
+    showSlides(slideIndex = 0);
 
 
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
+    function currentSlide(n) {
+     showSlides(slideIndex+=n);
+   }
+   function plusSlides(n) {
+     showSlides(slideIndex += n);  
+   }
+   var index=0;
+   function carolSlide()
+   {
+      var slide = document.getElementsByClassName("slide-box");
+      for(var i=0;i < slide.length ;i++){
+        slide[i].style.display="none";
+      }
+      if (index+2 > slide.length - 1) {
+        index=0;
+      }
+      if(index < 0)
+      {
+        index=slide.length-3;
+      }
+      slide[index].style.display="block";
+      slide[index+1].style.display="block";
+      slide[index+2].style.display="block";
+
+   }
+   carolSlide(index=0);
+   function current(n){
+    carolSlide(index+=n);
+   }
 </script>
 <!---->
 <!-- Thư viện jquery đã nén phục vụ cho bootstrap.min.js  -->

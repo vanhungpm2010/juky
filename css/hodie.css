@@ -1,4 +1,4 @@
-nav#navbar ul li:nth-child(3) a{
+nav#navbar ul li:nth-child(2) a{
 	color: red;
 }
 .row {
@@ -62,11 +62,31 @@ div.i-title:before{
     left: 0px;
     right: 0px;
 }
-
+div.img{
+	width: 248px;
+	height: 248px;
+	position: relative;
+}
 div.img img{
 	max-width: 100%;
-max-height: auto;
-display: block;
+	max-height: auto;
+	display: block;
+}
+.back{
+	position: absolute;
+	transform: rotateY(180deg);
+	top: 0;
+	left: 0;
+}
+.img:hover .back{
+	transform: rotateY(0deg);
+}
+.img:hover .front{
+	transform: rotateY(180deg);
+}
+.back, .front {
+	transition: all 0.5s;
+	backface-visibility: hidden;
 }
 div.box-product{
 	text-align: center;

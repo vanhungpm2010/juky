@@ -1,4 +1,4 @@
-nav#navbar ul li:nth-child(5) a{
+nav#navbar ul li:nth-child(3) a{
 	color: red;
 }
 ul.bread {
@@ -66,7 +66,28 @@ div.i-content h2 a{
 	color: #333;
 	font-size: 13px;
 }
-div.i-content a:hover{
+.image{
+	height: 247px;
+	width: 247px;
+	position: relative;
+}
+.back{
+	transform: rotateY(180deg);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.image:hover .back{
+	transform: rotateY(0deg);
+}
+.image:hover .front{
+	transform: rotateY(180deg);
+}
+.front , .back{
+	transition: all 0.5s;
+	backface-visibility: hidden;
+}
+div.i-content .name a:hover{
 	color: red;
 	text-decoration: none;
 }
@@ -83,6 +104,7 @@ div.tool a{
 div.tool a:hover {
 	background-color: #000;
 	color: #fff;
+	text-decoration: none;
 }
 div#orderModal .modal-dialog {
     min-width: 1170px;
